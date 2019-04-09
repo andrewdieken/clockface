@@ -21,6 +21,13 @@ gem "title"
 gem "tzinfo-data", platforms: [:mingw, :x64_mingw, :mswin, :jruby]
 gem "uglifier"
 gem "bootsnap", require: false
+gem "httparty"
+gem "trailblazer"
+gem "trailblazer-rails" # if you are in rails.
+gem "trailblazer-cells"
+gem 'reform'
+gem 'reform-rails'
+gem 'dry-validation'
 
 
 group :development do
@@ -44,6 +51,7 @@ group :test do
   gem "simplecov", require: false
   gem "timecop"
   gem "webmock"
+  gem "vcr"
 end
 
 gem "suspenders", group: [:development, :test]
