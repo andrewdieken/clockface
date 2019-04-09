@@ -28,6 +28,7 @@ gem "trailblazer-cells"
 gem 'reform'
 gem 'reform-rails'
 gem 'dry-validation'
+gem 'devise'
 
 
 group :development do
