@@ -10,7 +10,7 @@ uri.query = URI.encode_www_form({
 
 request = Net::HTTP::Post.new(uri.request_uri)
 
-request['Ocp-Apim-Subscription-Key'] = '<API_KEY'
+request['Ocp-Apim-Subscription-Key'] = ENV['FACE_API_KEY']
 request['Content-Type'] = 'application/json'
 
 imageUri = 'https://i.pinimg.com/564x/d3/ef/7f/d3ef7f12617985b708436adbfdc7f23d.jpg'
