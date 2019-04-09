@@ -17,6 +17,7 @@
 /tmp/*
 /yarn-error.log
 /config/database.yml
+.env.test.local
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
