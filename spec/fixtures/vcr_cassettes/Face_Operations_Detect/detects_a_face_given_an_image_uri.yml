@@ -1,0 +1,46 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://westus.api.cognitive.microsoft.com/face/v1.0/detect?returnFaceAttributes=age,gender,smile,facialHair,glasses,emotion,hair&returnFaceId=true&returnFaceLandmarks=false
+    body:
+      encoding: UTF-8
+      string: '{"url":"https://i.pinimg.com/564x/d3/ef/7f/d3ef7f12617985b708436adbfdc7f23d.jpg"}'
+    headers:
+      Ocp-Apim-Subscription-Key:
+      - "[FACE_API_KEY]"
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache
+      Pragma:
+      - no-cache
+      Content-Length:
+      - '649'
+      Content-Type:
+      - application/json; charset=utf-8
+      Expires:
+      - "-1"
+      X-Aspnet-Version:
+      - 4.0.30319
+      X-Powered-By:
+      - ASP.NET
+      Apim-Request-Id:
+      - 002b65ae-474a-4ad3-b0c3-f3fd5b3c9efc
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      X-Content-Type-Options:
+      - nosniff
+      Date:
+      - Tue, 09 Apr 2019 04:49:57 GMT
+    body:
+      encoding: UTF-8
+      string: '[{"faceId":"ef3a58e2-d594-4f54-b470-8f09db6c0a60","faceRectangle":{"top":100,"left":252,"width":227,"height":227},"faceAttributes":{"smile":0.625,"gender":"male","age":49.0,"facialHair":{"moustache":0.6,"beard":0.4,"sideburns":0.6},"glasses":"NoGlasses","emotion":{"anger":0.0,"contempt":0.0,"disgust":0.0,"fear":0.0,"happiness":0.625,"neutral":0.374,"sadness":0.0,"surprise":0.0},"hair":{"bald":0.07,"invisible":false,"hairColor":[{"color":"brown","confidence":0.97},{"color":"black","confidence":0.96},{"color":"gray","confidence":0.79},{"color":"other","confidence":0.14},{"color":"blond","confidence":0.05},{"color":"red","confidence":0.03}]}}}]'
+    http_version: 
+  recorded_at: Tue, 09 Apr 2019 04:49:57 GMT
+recorded_with: VCR 4.0.0
