@@ -12,12 +12,14 @@
   "sidebar";
   height: 100%;
   width: 100%;
+  background-color: #fafafa;
 }
 
 .sidebar {
   grid-area: sidebar;
   padding: 25px;
   background-color: #fafafa;
+  align-self: center;
 }
 
 .logo {
@@ -32,4 +34,8 @@
       width: 233px;
     }
   }
+}
+
+.text-center {
+  text-align: center;
 }
