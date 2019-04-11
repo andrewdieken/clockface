@@ -1,4 +1,4 @@
-class BranchesController < ApplicationController
+class BranchesController < Dashboard::BaseController
   before_action :set_branch, only: [:show, :edit, :update, :destroy]
 
   # GET /branches
@@ -22,6 +22,7 @@ class BranchesController < ApplicationController
   # POST /branches
   def create
     @branch = Branch.new(branch_params)
+    @branch.regional_manager_id = current_regional_manager.id
 
     if @branch.save
       redirect_to @branch, notice: 'Branch was successfully created.'
