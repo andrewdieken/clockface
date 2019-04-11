@@ -29,6 +29,7 @@ gem 'reform'
 gem 'reform-rails'
 gem 'dry-validation'
 gem 'devise'
+gem 'slim'
 
 
 group :development do
