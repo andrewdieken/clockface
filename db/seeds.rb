@@ -6,6 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 if Rails.env.development?
-  User.create!(email: 'user@example.com', password: 'password', password_confirmation: 'password')
   RegionalManager.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
+  Branch.create!(name: 'Starbucks', regional_manager_id: 1)
+  User.create!(email: 'user@example.com', password: 'password', password_confirmation: 'password', branch_id: 1)
 end
