@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_12_021940) do
+ActiveRecord::Schema.define(version: 2019_04_12_175203) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,6 +38,24 @@ ActiveRecord::Schema.define(version: 2019_04_12_021940) do
     t.index ["priority", "run_at"], name: "delayed_jobs_priority"
   end
 
+  create_table "employees", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.bigint "branch_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["branch_id"], name: "index_employees_on_branch_id"
+  end
+
+  create_table "pauses", force: :cascade do |t|
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "shift_id"
+    t.index ["shift_id"], name: "index_pauses_on_shift_id"
+  end
+
   create_table "regional_managers", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -48,6 +66,13 @@ ActiveRecord::Schema.define(version: 2019_04_12_021940) do
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_regional_managers_on_email", unique: true
     t.index ["reset_password_token"], name: "index_regional_managers_on_reset_password_token", unique: true
+  end
+
+  create_table "shifts", force: :cascade do |t|
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -65,5 +90,7 @@ ActiveRecord::Schema.define(version: 2019_04_12_021940) do
   end
 
   add_foreign_key "branches", "regional_managers"
+  add_foreign_key "employees", "branches"
+  add_foreign_key "pauses", "shifts"
   add_foreign_key "users", "branches"
 end

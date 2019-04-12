@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :employees
   authenticated :regional_manager do
     root to: "dashboard#show", as: :authenticated_regional_manager_root
   end
