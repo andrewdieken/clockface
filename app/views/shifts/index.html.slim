@@ -1,0 +1,31 @@
+p#notice
+  = notice
+h1
+  | Shifts
+table
+  thead
+    tr
+      th
+        | Start
+      th
+        | End
+      th
+        | Employee
+      th[colspan="3"]
+  tbody
+    - @shifts.each do |shift|
+      tr
+        td
+          = shift.start
+        td
+          = shift.stop
+        td
+          = shift.employee
+        td
+          = link_to 'Show', shift
+        td
+          = link_to 'Edit', edit_shift_path(shift)
+        td
+          = link_to 'Destroy', shift, method: :delete, data: { confirm: 'Are you sure?' }
+br
+= link_to 'New Shift', new_shift_path
