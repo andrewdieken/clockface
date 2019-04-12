@@ -47,15 +47,6 @@ ActiveRecord::Schema.define(version: 2019_04_12_175203) do
     t.index ["branch_id"], name: "index_employees_on_branch_id"
   end
 
-  create_table "pauses", force: :cascade do |t|
-    t.datetime "start_time"
-    t.datetime "end_time"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.bigint "shift_id"
-    t.index ["shift_id"], name: "index_pauses_on_shift_id"
-  end
-
   create_table "regional_managers", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -69,10 +60,12 @@ ActiveRecord::Schema.define(version: 2019_04_12_175203) do
   end
 
   create_table "shifts", force: :cascade do |t|
-    t.datetime "start_time"
-    t.datetime "end_time"
+    t.datetime "start"
+    t.datetime "stop"
+    t.bigint "employee_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["employee_id"], name: "index_shifts_on_employee_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -91,6 +84,5 @@ ActiveRecord::Schema.define(version: 2019_04_12_175203) do
 
   add_foreign_key "branches", "regional_managers"
   add_foreign_key "employees", "branches"
-  add_foreign_key "pauses", "shifts"
   add_foreign_key "users", "branches"
 end
