@@ -1,4 +1,4 @@
-class DashboardController < ApplicationController
+class DashboardController < Dashboard::BaseController
   def show
   end
 end
