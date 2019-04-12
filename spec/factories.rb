@@ -1,4 +1,10 @@
 FactoryBot.define do
+  factory :interim do
+    start { "2019-04-12 12:13:46" }
+    stop { "2019-04-12 12:13:46" }
+    shift { nil }
+  end
+
 
   factory :employee do
     first_name { "MyString" }

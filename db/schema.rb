@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_12_175203) do
+ActiveRecord::Schema.define(version: 2019_04_12_191346) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,6 +45,15 @@ ActiveRecord::Schema.define(version: 2019_04_12_175203) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["branch_id"], name: "index_employees_on_branch_id"
+  end
+
+  create_table "interims", force: :cascade do |t|
+    t.datetime "start"
+    t.datetime "stop"
+    t.bigint "shift_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["shift_id"], name: "index_interims_on_shift_id"
   end
 
   create_table "regional_managers", force: :cascade do |t|
@@ -84,5 +93,6 @@ ActiveRecord::Schema.define(version: 2019_04_12_175203) do
 
   add_foreign_key "branches", "regional_managers"
   add_foreign_key "employees", "branches"
+  add_foreign_key "interims", "shifts"
   add_foreign_key "users", "branches"
 end
