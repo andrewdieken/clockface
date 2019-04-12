@@ -1,0 +1,17 @@
+p#notice
+  = notice
+p
+  strong
+    | Start:
+  = @shift.start
+p
+  strong
+    | End:
+  = @shift.stop
+p
+  strong
+    | Employee:
+  = @shift.employee
+= link_to 'Edit', edit_shift_path(@shift)
+|  | 
+= link_to 'Back', shifts_path

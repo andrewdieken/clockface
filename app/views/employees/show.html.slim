@@ -1,0 +1,17 @@
+p#notice
+  = notice
+p
+  strong
+    | First name:
+  = @employee.first_name
+p
+  strong
+    | Last name:
+  = @employee.last_name
+p
+  strong
+    | Branch:
+  = @employee.branch
+= link_to 'Edit', edit_employee_path(@employee)
+|  | 
+= link_to 'Back', employees_path
