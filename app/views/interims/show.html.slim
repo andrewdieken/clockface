@@ -1,0 +1,17 @@
+p#notice
+  = notice
+p
+  strong
+    | Start:
+  = @interim.start
+p
+  strong
+    | Stop:
+  = @interim.stop
+p
+  strong
+    | Shift:
+  = @interim.shift
+= link_to 'Edit', edit_interim_path(@interim)
+|  | 
+= link_to 'Back', interims_path

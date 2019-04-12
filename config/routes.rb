@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     root to: "landing#show", as: :unauthenticated_root
   end
   
+  resources :interims
   resources :branches
   resources :employees
   resources :shifts

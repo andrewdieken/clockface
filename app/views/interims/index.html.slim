@@ -1,0 +1,31 @@
+p#notice
+  = notice
+h1
+  | Interims
+table
+  thead
+    tr
+      th
+        | Start
+      th
+        | Stop
+      th
+        | Shift
+      th[colspan="3"]
+  tbody
+    - @interims.each do |interim|
+      tr
+        td
+          = interim.start
+        td
+          = interim.stop
+        td
+          = interim.shift
+        td
+          = link_to 'Show', interim
+        td
+          = link_to 'Edit', edit_interim_path(interim)
+        td
+          = link_to 'Destroy', interim, method: :delete, data: { confirm: 'Are you sure?' }
+br
+= link_to 'New Interim', new_interim_path
