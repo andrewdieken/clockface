@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-  resources :interims
   authenticated :regional_manager do
     root to: "dashboard#show", as: :authenticated_regional_manager_root
   end
@@ -11,6 +10,7 @@ Rails.application.routes.draw do
     root to: "landing#show", as: :unauthenticated_root
   end
   
+  resources :interims
   resources :branches
   resources :employees
   resources :shifts
