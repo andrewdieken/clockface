@@ -9,11 +9,13 @@ Rails.application.routes.draw do
   unauthenticated do
     root to: "landing#show", as: :unauthenticated_root
   end
-  
+
+  root to: "landing#show"
+
   resources :interims
   resources :branches
   resources :employees
   resources :shifts
   devise_for :regional_managers, path: 'regional_managers'
-  devise_for :users, path: 'users', controllers: { sessions: "users/sessions" }
+  devise_for :users, path: 'users', controllers: { sessions: "users/sessions", invitations: "users/invitations" }
 end
