@@ -1,4 +1,4 @@
-class ShiftsController < ApplicationController
+class ShiftsController < Store::BaseController
   before_action :set_shift, only: [:show, :edit, :update, :destroy]
 
   # GET /shifts

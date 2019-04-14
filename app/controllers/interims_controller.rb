@@ -1,4 +1,4 @@
-class InterimsController < ApplicationController
+class InterimsController < Store::BaseController
   before_action :set_interim, only: [:show, :edit, :update, :destroy]
 
   # GET /interims

@@ -1,3 +1,3 @@
-class StoreController < ApplicationController
+class StoreController < Store::BaseController
   before_action :authenticate_user!
 end
