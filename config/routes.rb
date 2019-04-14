@@ -16,6 +16,5 @@ Rails.application.routes.draw do
   resources :branches
   resources :employees
   resources :shifts
-  devise_for :regional_managers, path: 'regional_managers'
   devise_for :users, path: 'users', controllers: { sessions: "users/sessions", invitations: "users/invitations" }
 end
