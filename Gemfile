@@ -30,6 +30,7 @@ gem 'reform-rails'
 gem 'dry-validation'
 gem 'devise'
 gem 'slim'
+gem 'devise_invitable', '~> 2.0.1'
 
 
 group :development do
