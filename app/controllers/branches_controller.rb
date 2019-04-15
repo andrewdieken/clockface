@@ -1,4 +1,5 @@
 class BranchesController < Dashboard::BaseController
+  before_action :can_manage
   before_action :set_branch, only: [:show, :edit, :update, :destroy]
 
   # GET /branches
@@ -50,6 +51,10 @@ class BranchesController < Dashboard::BaseController
     # Use callbacks to share common setup or constraints between actions.
     def set_branch
       @branch = Branch.find(params[:id])
+    end
+
+    def can_manage
+      authorize Branch, :manage?
     end
 
     # Only allow a trusted parameter "white list" through.
