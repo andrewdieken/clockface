@@ -1,5 +1,9 @@
-h1
-  | Store Dashboard Page
+- if current_user.regional_manager?
+  h1
+    | Regional Manager Dashboard Page
+- else
+  h1
+    | Store Dashboard Page
 br
 = link_to('Logout', destroy_user_session_path, method: :delete, class: 'active')
 br
