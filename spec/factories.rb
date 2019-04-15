@@ -19,15 +19,21 @@ FactoryBot.define do
   end
 
   factory :branch do
-    name { "MyString" }
-  end
-
-  factory :regional_manager do
-
+    sequence(:name) { |i| "branch_#{i}" }
   end
 
   factory :user do
+    sequence(:email) { |i| "user_#{i}@example.com" }
+    password { "foobar" }
+    password_confirmation { "foobar" }
 
+    trait :regional_manager do
+      role { :regional_manager }
+    end
+
+    trait :branch_manager do
+      role { :branch_manager }
+    end
   end
 
 end

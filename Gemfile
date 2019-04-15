@@ -30,6 +30,8 @@ gem 'reform-rails'
 gem 'dry-validation'
 gem 'devise'
 gem 'slim'
+gem 'devise_invitable', '~> 2.0.1'
+gem 'pundit'
 
 
 group :development do
@@ -37,6 +39,7 @@ group :development do
   gem "rack-mini-profiler", require: false
   gem "spring"
   gem "web-console"
+  gem "letter_opener"
 end
 
 group :development, :test do

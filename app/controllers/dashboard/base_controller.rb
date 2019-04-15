@@ -1,3 +1,3 @@
 class Dashboard::BaseController < ApplicationController
-  before_action :authenticate_regional_manager!
+  before_action :authenticate_user!
 end
