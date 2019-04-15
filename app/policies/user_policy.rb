@@ -1,5 +1,5 @@
 class UserPolicy < ApplicationPolicy
-  def new?
+  def can_invite?
     user.regional_manager?
   end
 end
