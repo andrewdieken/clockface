@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   include Pundit
+  include TrailblazerRunOptions
   protect_from_forgery
 
   rescue_from Pundit::NotAuthorizedError,
