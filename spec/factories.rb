@@ -19,11 +19,7 @@ FactoryBot.define do
   end
 
   factory :branch do
-    name { "MyString" }
-  end
-
-  factory :regional_manager do
-
+    sequence(:name) { |i| "branch_#{i}" }
   end
 
   factory :user do
