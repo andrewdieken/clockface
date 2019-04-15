@@ -39,6 +39,7 @@ group :development do
   gem "rack-mini-profiler", require: false
   gem "spring"
   gem "web-console"
+  gem "letter_opener"
 end
 
 group :development, :test do
