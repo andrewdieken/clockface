@@ -1,20 +1,21 @@
 Rails.application.routes.draw do
+  devise_for :users, path: 'users', controllers: {
+    sessions: "users/sessions",
+    invitations: "users/invitations"
+  }
 
-  authenticated :regional_manager do
-    root to: "dashboard#show", as: :authenticated_regional_manager_root
-  end
-  authenticated :user do
-    root to: "store#show", as: :authenticated_user_root
-  end
-  unauthenticated do
-    root to: "landing#show", as: :unauthenticated_root
-  end
+  devise_scope :user do
+    authenticated do
+      root "store#show"
+    end
 
-  root to: "landing#show"
+    unauthenticated do
+      root "users/sessions#new"
+    end
+  end
 
   resources :interims
   resources :branches
   resources :employees
   resources :shifts
-  devise_for :users, path: 'users', controllers: { sessions: "users/sessions", invitations: "users/invitations" }
 end

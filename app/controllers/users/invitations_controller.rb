@@ -1,3 +1,9 @@
-class Users::InvitationsController < Devise::InvitationsController
-  before_action :authenticate_regional_manager!
+module Users
+  class InvitationsController < Devise::InvitationsController
+    def new
+      self.resource = resource_class.new
+      authorize current_user
+      render :new
+    end
+  end
 end
