@@ -24,6 +24,9 @@ module Users
     def invite_params
       {
         email: params[:resource_name][:email],
+        first_name: params[:resource_name][:first_name],
+        last_name: params[:resource_name][:last_name],
+        branch: params[:resource_name][:branch],
         role: :branch_manager
       }
     end
