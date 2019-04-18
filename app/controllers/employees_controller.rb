@@ -1,4 +1,4 @@
-class EmployeesController < ApplicationController
+class EmployeesController < Dashboard::BaseController
   before_action :set_employee, only: [:show, :edit, :update, :destroy]
 
   # GET /employees

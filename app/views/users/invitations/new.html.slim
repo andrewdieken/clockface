@@ -2,8 +2,20 @@ h2
   = t "devise.invitations.new.header"
 = simple_form_for(resource, as: :resource_name, url: invitation_path(resource_name), html: { method: :post }) do |f|
   = f.error_notification
-  - resource.class.invite_key_fields.each do |field|
-    .form-inputs
-      = f.input field
+  .form-inputs
+    = f.label :email
+    = f.text_field :email, placeholder: "Enter Email", id: :email
+
+    = f.label :first_name
+    = f.text_field :first_name, placeholder: "Enter First Name", id: :first_name
+
+    = f.label :last_name
+    = f.text_field :last_name, placeholder: "Enter Last Name", id: :last_name
+
+    = f.association :branch
+
   .form-actions
     = f.button :submit, t("devise.invitations.new.submit_button")
+
+br
+= link_to('Cancel', root_path, class: 'active')
