@@ -5,7 +5,7 @@ p
   span Someone invited you to Clockface, you can accept it through the link below.
 
 p
-  = link_to "Accept Invitation", accept_invitation_url(@user, :invitation_token => @token, :subdomain => @subdomain)
+  = link_to "Accept Invitation", accept_invitation_url(@user, :invitation_token => @token)
 
 - if @user.invitation_due_at
   p
