@@ -49,6 +49,11 @@ jobs:
             bundle exec rails db:schema:load
 
       - run:
+          name: Compile assets
+          command: |
+            bundle exec rake assets:precompile
+
+      - run:
           name: Run Tests
           command: |
             bundle exec rspec spec

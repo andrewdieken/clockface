@@ -18,4 +18,9 @@ Rails.application.routes.draw do
   resources :branches
   resources :employees
   resources :shifts
+
+  get "/clock-in" => "dashboard#clock_in"
+  get "/clock-out" => "dashboard#clock_out"
+  get "/start-break" => "dashboard#start_break"
+  get "/end-break" => "dashboard#end_break"
 end
