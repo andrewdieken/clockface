@@ -28,4 +28,6 @@ table
         td
           = link_to 'Destroy', employee, method: :delete, data: { confirm: 'Are you sure?' }
 br
-= link_to 'New Employee', new_employee_path
+= link_to 'Add Employee', new_employee_path
+br
+= link_to('Back', root_path, class: 'active')
