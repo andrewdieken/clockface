@@ -1,7 +1,7 @@
 module PersonGroup
   module Operations
     class Create < ApplicationOperation
-      step :create!
+      success :create!
 
       def create!(options, params:, **)
         CreatePersonGroup.(
