@@ -1,0 +1,39 @@
+<video id="screenshot-vid" autoplay style="background-color:#333;height:480px;width:640px;"></video>
+<img id="screenshot-img" src="" style="background-color:#333;height:480px;width:640px;">
+<canvas style="display:none;"></canvas>
+<br/>
+<button id="screenshot-capture" class="capture-button">Capture Video</button>
+<br/>
+<br/>
+<button id="screenshot-button">Take screenshot</button>
+<script>
+  const constraints = {
+    video: true
+  };
+
+  const captureVideoButton =
+    document.querySelector('#screenshot-capture');
+  const screenshotButton = document.querySelector('#screenshot-button');
+  const img = document.querySelector('#screenshot-img');
+  const video = document.querySelector('#screenshot-vid');
+
+  const canvas = document.createElement('canvas');
+
+  captureVideoButton.onclick = function() {
+    navigator.mediaDevices.getUserMedia(constraints).
+      then(handleSuccess).catch(handleError);
+  };
+
+  screenshotButton.onclick = video.onclick = function() {
+    canvas.width = video.videoWidth;
+    canvas.height = video.videoHeight;
+    canvas.getContext('2d').drawImage(video, 0, 0);
+    // Other browsers will fall back to image/png
+    img.src = canvas.toDataURL('image/webp');
+  };
+
+  function handleSuccess(stream) {
+    screenshotButton.disabled = false;
+    video.srcObject = stream;
+  }
+</script>
