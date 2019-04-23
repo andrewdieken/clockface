@@ -9,9 +9,6 @@ table
         | First name
       th
         | Last name
-      th
-        | Branch
-      th[colspan="3"]
   tbody
     - @employees.each do |employee|
       tr
@@ -19,8 +16,6 @@ table
           = employee.first_name
         td
           = employee.last_name
-        td
-          = employee.branch
         td
           = link_to 'Show', employee
         td
