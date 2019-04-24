@@ -3,7 +3,7 @@ require "rails_helper"
 module PersonGroup
   module Operations
     RSpec.describe Train, vcr: { record: :once, match_requests_on: [:body] } do
-      let(:branch) { create(:branch) }
+      let(:branch) { create(:branch, id: 1) }
 
       it "trains the person group" do
         op = described_class.(branch: branch)
