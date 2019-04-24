@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 2019_04_24_020531) do
     t.datetime "updated_at", null: false
     t.datetime "trained_at"
     t.bigint "user_id"
+    t.index ["user_id"], name: "index_branches_on_user_id"
   end
 
   create_table "delayed_jobs", force: :cascade do |t|
@@ -95,6 +96,7 @@ ActiveRecord::Schema.define(version: 2019_04_24_020531) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "branches", "users"
   add_foreign_key "employees", "branches"
   add_foreign_key "interims", "shifts"
   add_foreign_key "users", "branches"
