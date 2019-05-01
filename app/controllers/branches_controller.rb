@@ -4,7 +4,8 @@ class BranchesController < Dashboard::BaseController
 
   # GET /branches
   def index
-    @branches = Branch.all
+    @current_user = current_user
+    @branches = Branch.all.where(user_id: current_user.id)
   end
 
   # GET /branches/1
