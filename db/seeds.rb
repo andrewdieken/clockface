@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 if Rails.env.development?
-  User.create!({
+  user = User.create!({
     email: 'admin@example.com',
     password: 'password',
     password_confirmation: 'password',
@@ -14,7 +14,7 @@ if Rails.env.development?
   }) if User.count.zero?
 
   if Branch.count.zero?
-    Branch.create!(name: 'Starbucks')
+    Branch.create!(name: 'Starbucks', user_id: user.id)
 
     User.create!({
       email: 'user@example.com',
