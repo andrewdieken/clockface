@@ -23,10 +23,10 @@ class BranchesController < Dashboard::BaseController
   # POST /branches
   def create
     @branch = Branch.new(branch_params)
-    @branch.regional_manager_id = current_regional_manager.id
+    @branch.user_id = current_user.id
 
     if @branch.save
-      redirect_to @branch, notice: 'Branch was successfully created.'
+      redirect_to branches_path, notice: 'Branch was successfully created.'
     else
       render :new
     end

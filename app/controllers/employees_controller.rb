@@ -22,9 +22,10 @@ class EmployeesController < Dashboard::BaseController
   # POST /employees
   def create
     @employee = Employee.new(employee_params)
+    @employee.branch_id = current_user.branch_id
 
     if @employee.save
-      redirect_to @employee, notice: 'Employee was successfully created.'
+      redirect_to employees_path, notice: 'Employee was successfully created.'
     else
       render :new
     end
